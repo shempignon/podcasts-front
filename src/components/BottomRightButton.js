@@ -8,9 +8,10 @@ import { compose } from "react-apollo";
 
 const styles = theme => ({
   fab: {
-    position: "absolute",
+    position: "fixed",
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
+    zIndex: 1000,
   },
 });
 
@@ -18,7 +19,7 @@ const config = pathname => {
   switch (pathname) {
     case "/":
       return {
-        icon: <AddIcon />,
+        icon: <AddIcon/>,
         color: "primary",
         label: "New Feed",
         path: "/new"
@@ -26,7 +27,7 @@ const config = pathname => {
     case "/new":
     default:
       return {
-        icon: <ReorderIcon />,
+        icon: <ReorderIcon/>,
         color: "primary",
         label: "New Feed",
         path: "/"
@@ -35,14 +36,12 @@ const config = pathname => {
 };
 
 const BottomRightButton = ({ classes: { fab }, location: { pathname } }) => {
-  const {icon , color, label, path} = config(pathname);
+  const { icon, color, label, path } = config(pathname);
 
   return (
-    <Link to={path}>
-      <Button variant="fab" color={color} aria-label={label} className={fab}>
-        {icon}
-      </Button>
-    </Link>
+    <Button variant="fab" color={color} aria-label={label} className={fab} to={path} component={Link}>
+      {icon}
+    </Button>
   );
 };
 

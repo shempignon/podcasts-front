@@ -1,15 +1,18 @@
 import React from 'react';
 import List from "@material-ui/core/List/List";
-import Typography from "@material-ui/core/Typography/Typography";
 import Query from "./Query";
 import { GET_BROADCASTS } from "../queries";
 import Broadcast from "./Broadcast";
+import ListItemText from "@material-ui/core/ListItemText/ListItemText";
+import ListItem from "@material-ui/core/ListItem/ListItem";
 
 export default () => (
-  <Query query={GET_BROADCASTS} fetchPolicy="network-only">
+  <Query query={GET_BROADCASTS}>
     {({ broadcasts: { edges } }) => (
       <List>
-        <Typography color="secondary" variant="h4" gutterBottom>Broadcasts</Typography>
+        <ListItem>
+          <ListItemText primary="Broadcasts" primaryTypographyProps={{ variant: 'h4', color: 'primary' }}/>
+        </ListItem>
         {edges.map(({ node }) => (<Broadcast key={node.id} node={node}/>))}
       </List>
     )}

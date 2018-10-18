@@ -37,7 +37,7 @@ class CreateFeedForm extends Component {
             id="url"
             name="url"
             autoComplete="url"
-            onChange={e => this.setState({ url: e.target.value})}
+            onChange={e => this.setState({ url: e.target.value })}
             autoFocus/>
         </FormControl>
         <Button

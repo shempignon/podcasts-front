@@ -19,6 +19,34 @@ export const GET_BROADCASTS = gql`
 }
 `;
 
+export const GET_BROADCAST = gql`
+query getBroadcast($id: ID) 
+{
+  broadcast (id: $id) {
+    name
+    cover {
+      url
+      download {
+        path
+      }
+    }
+    episodes {
+      edges {
+        node {
+          id
+          name
+          broadcastedOn
+          url
+          download {
+            path
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 export const NEW_FEED = gql`
 mutation NewFeed($input: createFeedInput) {
   createFeed(input: $input) {

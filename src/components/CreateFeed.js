@@ -2,7 +2,7 @@ import React from "react";
 import Mutation from "react-apollo/Mutation";
 import Paper from "@material-ui/core/Paper/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { NEW_FEED } from "../queries";
+import { GET_BROADCASTS, NEW_FEED } from "../queries";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import CreateFeedForm from "./CreateFeedForm";
 
@@ -36,7 +36,7 @@ const styles = theme => ({
 
 
 const CreateFeed = ({ classes: { paper, form, submit, layout } }) => (
-  <Mutation mutation={NEW_FEED}>
+  <Mutation mutation={NEW_FEED} refetchQueries={[{ query: GET_BROADCASTS }]}>
     {(createFeed, { loading, error }) => (
       <div className={layout}>
         <Paper className={paper}>

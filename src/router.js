@@ -6,11 +6,11 @@ import Grid from "@material-ui/core/Grid/Grid";
 import CreateFeed from "./components/CreateFeed";
 import withStyles from "@material-ui/core/styles/withStyles";
 import BottomRightButton from "./components/BottomRightButton";
+import EpisodeList from "./components/EpisodeList";
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing.unit,
   },
   main: {
     width: '100%',
@@ -22,11 +22,12 @@ const Router = ({ classes: { root, main } }) => (
   <Grid className={root} container>
     <BrowserRouter>
       <main className={main}>
-        <BottomRightButton />
+        <BottomRightButton/>
 
         <Switch>
           <Route exact path="/" component={BroadcastList}/>
           <Route path="/new" component={CreateFeed}/>
+          <Route path="/broadcasts/:uuid/episodes" component={EpisodeList}/>
         </Switch>
       </main>
     </BrowserRouter>
