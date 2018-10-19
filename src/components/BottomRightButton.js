@@ -6,11 +6,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button/Button";
 import { compose } from "react-apollo";
 
-const styles = theme => ({
+const styles = ({ spacing: { unit }}) => ({
   fab: {
     position: "fixed",
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2,
+    bottom: unit * 10,
+    right: unit * 2,
     zIndex: 1000,
   },
 });

@@ -7,14 +7,16 @@ import CreateFeed from "./components/CreateFeed";
 import withStyles from "@material-ui/core/styles/withStyles";
 import BottomRightButton from "./components/BottomRightButton";
 import EpisodeList from "./components/EpisodeList";
+import Player from "./components/Player";
 
-const styles = theme => ({
+const styles = ({ spacing: { unit } }) => ({
   root: {
     flexGrow: 1,
   },
   main: {
     width: '100%',
     height: '100%',
+    paddingBottom: unit * 8,
   }
 });
 
@@ -31,6 +33,7 @@ const Router = ({ classes: { root, main } }) => (
         </Switch>
       </main>
     </BrowserRouter>
+    <Player />
   </Grid>
 );
 

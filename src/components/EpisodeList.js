@@ -22,11 +22,15 @@ const EpisodeList = ({ match: { params: { uuid } } }) => {
               <Avatar src={src}/>
               <ListItemText primary={name} primaryTypographyProps={{ variant: 'h4', color: 'primary' }}/>
             </ListItem>
-            {edges.map(({ node: { id, name, broadcastedOn } }) => (
-              <ListItem key={id}>
-                <ListItemText primary={name} secondary={new Date(broadcastedOn).toLocaleDateString('fr-FR')}/>
-              </ListItem>
-            ))}
+            {edges.map(({ node: { id, name, broadcastedOn, url, download } }) => {
+              const audio = null != download && null != download.path ? download.path : url;
+              const audioEl = new Audio(audio);
+
+              return (
+                <ListItem key={id} button={true} onClick={() => audioEl.play()}>
+                  <ListItemText primary={name} secondary={new Date(broadcastedOn).toLocaleDateString('fr-FR')}/>
+                </ListItem>)
+            })}
           </List>
         )
       }}
