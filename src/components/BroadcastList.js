@@ -27,7 +27,7 @@ export const BroadcastsQuery = gql`
 
 export default () => (
   <Query query={ BroadcastsQuery }>
-    { ({ broadcasts: { edges } }) => (
+    { ({ data: { broadcasts: { edges } } }) => (
       <List>
         <ListItem>
           <ListItemText primary="Broadcasts" primaryTypographyProps={ { variant: 'h4', color: 'primary' } }/>

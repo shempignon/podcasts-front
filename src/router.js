@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 import CreateFeed from "./components/CreateFeed";
 import withStyles from "@material-ui/core/styles/withStyles";
 import BottomRightButton from "./components/BottomRightButton";
-import EpisodeList from "./components/EpisodeList";
+import BroadcastEpisodes from "./components/BroadcastEpisodes";
 import Player from "./components/Player";
 import styles from "./styles";
 
@@ -19,7 +19,7 @@ const Router = ({ classes: { root, main } }) => (
         <Switch>
           <Route exact path="/" component={ BroadcastList }/>
           <Route path="/new" component={ CreateFeed }/>
-          <Route path="/broadcasts/:uuid/episodes" component={ EpisodeList }/>
+          <Route path="/broadcasts/:uuid/episodes" component={ BroadcastEpisodes }/>
         </Switch>
       </main>
     </BrowserRouter>

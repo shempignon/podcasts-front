@@ -5,10 +5,10 @@ import Typography from "@material-ui/core/Typography/Typography";
 
 export default ({ children, ...props }) => (
   <Query { ...props }>
-    { ({ loading, error, data }) => {
+    { ({ loading, error, data, fetchMore }) => {
       if (loading) return <CircularProgress color="secondary"/>;
       if (error) return <Typography variant="body1" gutterBottom>`Error! ${ error.message }`</Typography>;
-      return children(data);
+      return children({ data, fetchMore });
     } }
   </Query>
 );
