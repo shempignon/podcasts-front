@@ -36,21 +36,21 @@ query getBroadcast($id: ID)
 }
 `;
 
-const EpisodeList = ({match: {params: {uuid}}}) => {
+const EpisodeList = ({ match: { params: { uuid } } }) => {
   const id = `/broadcasts/${uuid}`;
 
   return (
-    <Query query={ BroadcastEpisodesQuery } variables={ {id} }>
-      { ({broadcast: {name, episodes: {edges}, cover: {download, url}}}) => {
+    <Query query={ BroadcastEpisodesQuery } variables={ { id } }>
+      { ({ broadcast: { name, episodes: { edges }, cover: { download, url } } }) => {
         const src = null != download && null != download.path ? download.path : url;
 
         return (
           <List>
             <ListItem>
               <Avatar src={ src }/>
-              <ListItemText primary={ name } primaryTypographyProps={ {variant: 'h4', color: 'primary'} }/>
+              <ListItemText primary={ name } primaryTypographyProps={ { variant: 'h4', color: 'primary' } }/>
             </ListItem>
-            { edges.map(({node: {id, name, broadcastedOn, url, download}}) => {
+            { edges.map(({ node: { id, name, broadcastedOn, url, download } }) => {
               const audio = null != download && null != download.path ? download.path : url;
               const audioEl = new Audio(audio);
 

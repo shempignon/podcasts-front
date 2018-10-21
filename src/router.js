@@ -11,19 +11,19 @@ import Player from "./components/Player";
 import styles from "./styles";
 
 const Router = ({ classes: { root, main } }) => (
-  <Grid className={root} container>
+  <Grid className={ root } container>
     <BrowserRouter>
-      <main className={main}>
+      <main className={ main }>
         <BottomRightButton/>
 
         <Switch>
-          <Route exact path="/" component={BroadcastList}/>
-          <Route path="/new" component={CreateFeed}/>
-          <Route path="/broadcasts/:uuid/episodes" component={EpisodeList}/>
+          <Route exact path="/" component={ BroadcastList }/>
+          <Route path="/new" component={ CreateFeed }/>
+          <Route path="/broadcasts/:uuid/episodes" component={ EpisodeList }/>
         </Switch>
       </main>
     </BrowserRouter>
-    <Player />
+    <Player/>
   </Grid>
 );
 

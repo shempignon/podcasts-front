@@ -31,8 +31,8 @@ const BottomRightButton = ({ classes: { fab }, location: { pathname } }) => {
   const { icon, color, label, path } = config(pathname);
 
   return (
-    <Button variant="fab" color={color} aria-label={label} className={fab} to={path} component={Link}>
-      {icon}
+    <Button variant="fab" color={ color } aria-label={ label } className={ fab } to={ path } component={ Link }>
+      { icon }
     </Button>
   );
 };

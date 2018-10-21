@@ -18,9 +18,9 @@ class CreateFeedForm extends Component {
     const { error, form, submit, createFeed } = this.props;
 
     return (
-      <form className={form} onSubmit={() => createFeed(this.state.url)}>
-        {error &&
-          <Typography variant="body1" color="error" gutterBottom>`Error! ${error.message}`</Typography>
+      <form className={ form } onSubmit={ () => createFeed(this.state.url) }>
+        { error &&
+          <Typography variant="body1" color="error" gutterBottom>`Error! ${ error.message }`</Typography>
         }
         <FormControl margin="normal" required fullWidth>
           <InputLabel htmlFor="feed">Broadcast RSS</InputLabel>
@@ -28,7 +28,7 @@ class CreateFeedForm extends Component {
             id="url"
             name="url"
             autoComplete="url"
-            onChange={e => this.setState({ url: e.target.value })}
+            onChange={ e => this.setState({ url: e.target.value }) }
             autoFocus/>
         </FormControl>
         <Button
@@ -36,7 +36,7 @@ class CreateFeedForm extends Component {
           fullWidth
           variant="contained"
           color="primary"
-          className={submit}
+          className={ submit }
         >
           Add new broadcast
         </Button>

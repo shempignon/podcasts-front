@@ -1,4 +1,4 @@
-export default ({spacing, palette, breakpoints}) => ({
+export default ({ spacing, palette, breakpoints }) => ({
   root: {
     flexGrow: 1,
   },

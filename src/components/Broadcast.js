@@ -8,9 +8,9 @@ export default ({ node: { id, name, cover: { download, url } } }) => {
   const src = null !== download && null !== download.path ? download.path : url;
 
   return (
-    <ListItem button component={Link} to={`${id}/episodes`}>
-      <Avatar alt={name} src={src}/>
-      <ListItemText primary={name}/>
+    <ListItem button component={ Link } to={ `${id}/episodes` }>
+      <Avatar alt={ name } src={ src }/>
+      <ListItemText primary={ name }/>
     </ListItem>
   )
 };

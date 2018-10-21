@@ -16,19 +16,19 @@ mutation NewFeed($input: createFeedInput) {
 }
 `;
 
-const CreateFeed = ({classes: {paper, form, submit, layout}}) => (
-  <Mutation mutation={ NEW_FEED } refetchQueries={ [{query: BroadcastsQuery}] }>
-    { (createFeed, {loading, error}) => (
+const CreateFeed = ({ classes: { paper, form, submit, layout } }) => (
+  <Mutation mutation={ NEW_FEED } refetchQueries={ [{ query: BroadcastsQuery }] }>
+    { (createFeed, { loading, error }) => (
       <div className={ layout }>
         <Paper className={ paper }>
           { loading &&
-          <CircularProgress color="secondary"/>
+            <CircularProgress color="secondary"/>
           }
           { !loading &&
-          <CreateFeedForm
-            error={ error }
-            createFeed={ url => createFeed({variables: {input: {url, clientMutationId: '1'}}}) }
-          />
+            <CreateFeedForm
+              error={ error }
+              createFeed={ url => createFeed({ variables: { input: { url, clientMutationId: '1' } } }) }
+            />
           }
         </Paper>
       </div>
@@ -36,4 +36,4 @@ const CreateFeed = ({classes: {paper, form, submit, layout}}) => (
   </Mutation>
 );
 
-export default withStyles(styles, {withTheme: true})(CreateFeed);
+export default withStyles(styles, { withTheme: true })(CreateFeed);

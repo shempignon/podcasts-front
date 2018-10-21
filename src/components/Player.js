@@ -5,8 +5,8 @@ import styles from "../styles";
 
 const Player = ({ classes: { playerContainer, player }, src = undefined }) => {
   return (
-    <Paper className={playerContainer}>
-      <audio controls src={src} className={player}/>
+    <Paper className={ playerContainer }>
+      <audio controls src={ src } className={ player }/>
     </Paper>
   )
 };

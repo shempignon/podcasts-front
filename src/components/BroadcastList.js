@@ -26,14 +26,14 @@ export const BroadcastsQuery = gql`
 `;
 
 export default () => (
-  <Query query={BroadcastsQuery}>
-    {({ broadcasts: { edges } }) => (
+  <Query query={ BroadcastsQuery }>
+    { ({ broadcasts: { edges } }) => (
       <List>
         <ListItem>
-          <ListItemText primary="Broadcasts" primaryTypographyProps={{ variant: 'h4', color: 'primary' }}/>
+          <ListItemText primary="Broadcasts" primaryTypographyProps={ { variant: 'h4', color: 'primary' } }/>
         </ListItem>
-        {edges.map(({ node }) => (<Broadcast key={node.id} node={node}/>))}
+        { edges.map(({ node }) => (<Broadcast key={ node.id } node={ node }/>)) }
       </List>
-    )}
+    ) }
   </Query>
 );

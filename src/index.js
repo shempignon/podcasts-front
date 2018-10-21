@@ -10,8 +10,8 @@ import * as serviceWorker from "./serviceWorker";
 import Router from './router';
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <MuiThemeProvider theme={theme}>
+  <ApolloProvider client={ client }>
+    <MuiThemeProvider theme={ theme }>
       <CssBaseline/>
       <Router/>
     </MuiThemeProvider>
