@@ -5,16 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 import Input from "@material-ui/core/Input/Input";
 import Button from "@material-ui/core/Button/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
-
-const styles = theme => ({
-  form: {
-    width: '100%', // Fix IE11 issue.
-    marginTop: theme.spacing.unit,
-  },
-  submit: {
-    marginTop: theme.spacing.unit * 3,
-  },
-});
+import styles from "../styles";
 
 class CreateFeedForm extends Component {
   constructor(props) {

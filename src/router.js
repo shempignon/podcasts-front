@@ -8,17 +8,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import BottomRightButton from "./components/BottomRightButton";
 import EpisodeList from "./components/EpisodeList";
 import Player from "./components/Player";
-
-const styles = ({ spacing: { unit } }) => ({
-  root: {
-    flexGrow: 1,
-  },
-  main: {
-    width: '100%',
-    height: '100%',
-    paddingBottom: unit * 8,
-  }
-});
+import styles from "./styles";
 
 const Router = ({ classes: { root, main } }) => (
   <Grid className={root} container>

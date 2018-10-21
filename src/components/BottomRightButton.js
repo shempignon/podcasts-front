@@ -5,15 +5,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button/Button";
 import { compose } from "react-apollo";
-
-const styles = ({ spacing: { unit }}) => ({
-  fab: {
-    position: "fixed",
-    bottom: unit * 10,
-    right: unit * 2,
-    zIndex: 1000,
-  },
-});
+import styles from "../styles";
 
 const config = pathname => {
   switch (pathname) {
