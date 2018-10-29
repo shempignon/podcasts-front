@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ApolloConsumer } from "react-apollo";
 import List from "@material-ui/core/List/List";
 import ListItem from "@material-ui/core/ListItem/ListItem";
 import Avatar from "@material-ui/core/Avatar/Avatar";
@@ -30,7 +31,7 @@ class EpisodeList extends Component {
 
   trackScrolling = debounce(() => {
     if (this.isBottom(document.getElementById(this.id))) {
-      console.log('Fetching more');
+
       return this.props.fetchMore();
     }
   }, 500);
@@ -39,23 +40,30 @@ class EpisodeList extends Component {
     const { name, src, episodes } = this.props;
 
     return (
-      <div id={this.id}>
-        <List>
-          <ListItem>
-            <Avatar src={src}/>
-            <ListItemText primary={name} primaryTypographyProps={{ variant: 'h4', color: 'primary' }}/>
-          </ListItem>
-          {episodes.map(({ node: { id, name, broadcastedOn, url, download } }) => {
-            const audio = null != download && null != download.path ? download.path : url;
-            const audioEl = new Audio(audio);
+      <ApolloConsumer>
+        { client =>
+          <div id={ this.id }>
+            <List>
+              <ListItem>
+                <Avatar src={ src }/>
+                <ListItemText primary={ name } primaryTypographyProps={ { variant: 'h4', color: 'primary' } }/>
+              </ListItem>
+              { episodes.map(({ node: { id, name, broadcastedOn, url, download } }) => {
+                const location = null != download && null != download.path ? download.path : url;
 
-            return (
-              <ListItem key={id} button={true} onClick={() => audioEl.play()}>
-                <ListItemText primary={name} secondary={new Date(broadcastedOn).toLocaleDateString('fr-FR')}/>
-              </ListItem>)
-          })}
-        </List>
-      </div>
+                return (
+                  <ListItem
+                    key={ id }
+                    button={ true }
+                    onClick={ () => client.writeData({ data: { location: location, name: name } }) }
+                  >
+                    <ListItemText primary={ name } secondary={ new Date(broadcastedOn).toLocaleDateString('fr-FR') }/>
+                  </ListItem>)
+              }) }
+            </List>
+          </div>
+        }
+      </ApolloConsumer>
     );
   }
 }
