@@ -44,7 +44,7 @@ const BroadcastEpisodes = ({ match: { params: { uuid } } }) => {
   return (
     <Query query={BroadcastEpisodesQuery} variables={{ id }}>
       {({ data: { broadcast: { name, episodes: { edges, pageInfo }, cover: { download, url } } }, fetchMore }) => {
-        const src = null != download && null != download.path ? download.path : url;
+        const src = null != download && null != download.path ? `${process.env.REACT_APP_BACKEND_HOST}/${download.path}` : url;
         const cursor = edges[edges.length - 1].cursor;
 
         return (

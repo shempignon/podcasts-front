@@ -1,10 +1,11 @@
 import ApolloClient from "apollo-boost";
 
-const uri = process.env.REACT_APP_GRAPHQL_URI;
+const backendHost = process.env.REACT_APP_BACKEND_HOST;
+const uri = `${backendHost}/graphql`
 
 const defaults = {
-  location: undefined,
-  name: undefined,
+  location: null,
+  name: null,
 };
 
 const resolvers = [];

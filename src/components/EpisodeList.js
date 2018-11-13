@@ -49,7 +49,7 @@ class EpisodeList extends Component {
                 <ListItemText primary={ name } primaryTypographyProps={ { variant: 'h4', color: 'primary' } }/>
               </ListItem>
               { episodes.map(({ node: { id, name, broadcastedOn, url, download } }) => {
-                const location = null != download && null != download.path ? download.path : url;
+                const location = null != download && null != download.path ? `${process.env.REACT_APP_BACKEND_HOST}/${download.path}` : url;
 
                 return (
                   <ListItem

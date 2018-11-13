@@ -5,7 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText/ListItemText";
 import { Link } from "react-router-dom";
 
 export default ({ node: { id, name, cover: { download, url } } }) => {
-  const src = null !== download && null !== download.path ? download.path : url;
+  const src = null !== download && null !== download.path ? `${process.env.REACT_APP_BACKEND_HOST}/${download.path}` : url;
 
   return (
     <ListItem button component={ Link } to={ `${id}/episodes` }>
